@@ -10,6 +10,8 @@ Go through each letter in s, and look for the letter in t, if it is there remove
 Actual Implementation:
 While their are still characters in the string s, find an equal for them in string t, if we get to the end of the j loop, and no character has been found, return false.
 */
+
+//TODO: Implement with HashMap / Counting Array
 bool isAnagram(string s, string t){
     // If not same size, not an anagram.
     if(s.size() != t.size()){
