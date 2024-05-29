@@ -1,5 +1,6 @@
 #include <string>
 #include <cstdio>
+#include <unordered_map>
 
 using namespace std;
 
@@ -12,31 +13,34 @@ While their are still characters in the string s, find an equal for them in stri
 */
 
 //TODO: Implement with HashMap / Counting Array
+
+/*
+Went back through and redid with HashMap
+*/
+
 bool isAnagram(string s, string t){
     // If not same size, not an anagram.
     if(s.size() != t.size()){
         return false;
     }
+    unordered_map<char, int> umap;
+    for(int i = 0; i < s.size(); i++){
+        umap[s[i]]++;
+    }
 
-    // Main Check
-    while (s.size())
-    {
-        for(int j = 0; j < t.size(); j++){
-            if(s[0] == t[j]){
-                s.erase(0, 1);
-                t.erase(j, 1);
-                break;
-            }
-
-            if(j + 1 == t.size())
-                return false;
+    for (int i = 0; i < t.size(); i++){
+        umap[t[i]]--;
+        if(umap[t[i]] < 0){
+            return false;
         }
     }
+
     return true;
+
 };
 
 int main(){
-    string s = "racecar";
+    string s = "racecas";
     string t = "carrace";
 
     if(isAnagram(s, t)){
