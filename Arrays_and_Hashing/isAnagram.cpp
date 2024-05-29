@@ -5,17 +5,7 @@
 using namespace std;
 
 /*
-First Thoughts:
-Go through each letter in s, and look for the letter in t, if it is there remove it and keep going, if it isnt return false.
-
-Actual Implementation:
-While their are still characters in the string s, find an equal for them in string t, if we get to the end of the j loop, and no character has been found, return false.
-*/
-
-//TODO: Implement with HashMap / Counting Array
-
-/*
-Went back through and redid with HashMap
+Counts each of the letters and assigns them into a map, then subtracts from those letters, if any count ends up negative we know its not in the anagram.
 */
 
 bool isAnagram(string s, string t){
