@@ -6,7 +6,7 @@ class Solution:
         left = 0
         right = len(nums) - 1
         while left <= right:
-            mid = left + ((right - 1) // 2)
+            mid = left + ((right - left) // 2)
             if nums[mid] == target:
                 return mid
             if nums[mid] > target:
@@ -18,4 +18,4 @@ class Solution:
 
 if '__main__' == __name__:
     solution = Solution()
-    print(solution.search([-1, 0, 2, 4, 6, 8], 4))
+    print(solution.search([10,11,12,13], 10))
